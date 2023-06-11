@@ -6,7 +6,7 @@ C++ dilinde native modül yazmak için şu adımları takip edin.
 - `.h ve .cpp` dosyalarını oluşturun. (Ben `opencv-cpp.h` ve `opencv-cpp.cpp` dosyalarını oluşturdum.)
 
 ### Android için
-__`commit`__: 384b402
+__`commit`__: [384b402](https://github.com/yasintorun/react-native-opencv-cpp/commit/384b402eb984269fc17bacd6f5dacde0e3f00965)
 - `android/app` klasöründe `cpp-adapter.cpp` dosyası oluşturun. İçeriğini kendinize göre değiştirin. (Ben şimdilik basit bir createMessage fonksiyonu yazdım);
 ```cpp
 #include <jni.h>
@@ -154,7 +154,7 @@ protected List<ReactPackage> getPackages() {
 
 
 ### iOS için
-__`commit`__: 0e8a006
+__`commit`__: [0e8a006](https://github.com/yasintorun/react-native-opencv-cpp/commit/0e8a006a9bbe14978fce68abfbda3d2da9e9d820)
 
 Öncelikle yazdığımız c++ kodunu XCode kullanarak içe aktaralım.
 - XCode'u açın.
