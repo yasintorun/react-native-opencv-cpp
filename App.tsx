@@ -18,13 +18,13 @@ const App = () => {
     OpencvCpp.createMessage('Hello World from Cpp').then(setMessage);
   }, []);
 
-  if (!device) {
-    return <Text>Camera not found</Text>;
-  }
-  if (!hasPermission) {
-    return <Text>No access to camera</Text>;
-  }
+  // if (!hasPermission) {
+  //   return <Text>No access to camera</Text>;
+  // }
 
+  // if (!device) {
+  //   return <Text>Camera not found</Text>;
+  // }
 
   return (
     <SafeAreaView style={styles.root}>
