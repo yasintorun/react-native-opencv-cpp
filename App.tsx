@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
-import { Dimensions, SafeAreaView, StyleSheet, Text } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Dimensions, SafeAreaView, StyleSheet, Text, NativeModules } from 'react-native';
 import { Camera, useCameraDevices } from 'react-native-vision-camera';
-
-const {width, height} = Dimensions.get('screen');
+const { OpencvCpp } = NativeModules;
+const { width, height } = Dimensions.get('screen');
 
 const App = () => {
+  const [message, setMessage] = useState("");
   const [hasPermission, setHasPermission] = React.useState(false);
   const device = useCameraDevices().back;
 
@@ -13,22 +14,26 @@ const App = () => {
       const status = await Camera.requestCameraPermission();
       setHasPermission(status === 'authorized');
     })();
+    console.log(OpencvCpp)
+    OpencvCpp.createMessage('Hello World from Cpp').then(setMessage);
   }, []);
 
   if (!device) {
     return <Text>Camera not found</Text>;
   }
-  if(!hasPermission) {
+  if (!hasPermission) {
     return <Text>No access to camera</Text>;
   }
 
+
   return (
     <SafeAreaView style={styles.root}>
-      <Camera
+      <Text>{message}</Text>
+      {/* <Camera
         style={styles.camera}
         isActive={true}
         device={device}
-      />
+      /> */}
     </SafeAreaView>
   );
 }
@@ -38,6 +43,8 @@ export default App;
 const styles = StyleSheet.create({
   root: {
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
   },
   camera: {
     width,
